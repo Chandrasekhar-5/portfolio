@@ -52,29 +52,58 @@ window.addEventListener('scroll', () => {
 const navLinks = document.querySelectorAll('.nav-link');
 const navUnderline = document.querySelector('.nav-underline');
 const navLinkContainer = document.querySelector('.nav-links-container');
+let activeLink = null;
 
 
-const navContainerRect = navLinkContainer.getBoundingClientRect();
+updateActiveLink();
+
 
 navLinks.forEach(link => {
   link.addEventListener('mouseenter', function() {
-    const linkRect = this.getBoundingClientRect();
-    const navRect = navLinkContainer.getBoundingClientRect(); 
-    
-    navUnderline.style.left = `${linkRect.left - navRect.left}px`;
-    navUnderline.style.width = `${linkRect.width}px`;
-    navUnderline.style.opacity = '1';
+    this.style.color = 'var(--accent)';
   });
   
   link.addEventListener('mouseleave', function() {
-    if (!activeLink) { 
-      navUnderline.style.opacity = '0';
+    
+    if (activeLink !== this) {
+      this.style.color = '';
     }
   });
 });
 
 
-let activeLink = null;
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      
+      navLinks.forEach(l => {
+        l.style.color = ''; 
+      });
+      
+      
+      activeLink = this;
+      this.style.color = 'var(--accent)';
+      
+      
+      updateUnderlinePosition(this);
+    }
+  });
+});
+
+
+function updateUnderlinePosition(link) {
+  const linkRect = link.getBoundingClientRect();
+  const navRect = navLinkContainer.getBoundingClientRect();
+  
+  navUnderline.style.left = `${linkRect.left - navRect.left}px`;
+  navUnderline.style.width = `${linkRect.width}px`;
+  navUnderline.style.opacity = '1';
+}
+
 
 function updateActiveLink() {
   const scrollPos = window.scrollY + 100;
@@ -88,22 +117,19 @@ function updateActiveLink() {
     
     if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
       if (activeLink !== link) {
+        
+        navLinks.forEach(l => {
+          if (l !== link) {
+            l.style.color = ''; 
+          }
+        });
+        
+        
         activeLink = link;
+        link.style.color = 'var(--accent)';
         
-        const linkRect = link.getBoundingClientRect();
-        const navRect = navLinkContainer.getBoundingClientRect();
         
-        navUnderline.style.left = `${linkRect.left - navRect.left}px`;
-        navUnderline.style.width = `${linkRect.width}px`;
-        navUnderline.style.opacity = '1';
-      }
-    } else if (activeLink === link) {
-      
-      if (document.querySelector('.nav-links-container:hover')) {
-        
-      } else {
-        activeLink = null;
-        navUnderline.style.opacity = '0';
+        updateUnderlinePosition(link);
       }
     }
   });
@@ -111,9 +137,11 @@ function updateActiveLink() {
 
 
 window.addEventListener('scroll', updateActiveLink);
-window.addEventListener('resize', updateActiveLink);
-
-updateActiveLink();
+window.addEventListener('resize', () => {
+  if (activeLink) {
+    updateUnderlinePosition(activeLink);
+  }
+});
 
 
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
