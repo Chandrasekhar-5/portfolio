@@ -37,7 +37,6 @@ body {
     background: var(--bg);
     color: var(--text);
     transition: background 0.5s ease, color 0.5s ease;
-    overflow: hidden;
 }
 
 .scroll-progress {
@@ -105,24 +104,17 @@ body {
     position: relative;
     font-weight: 500;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-}
-.nav-links a:hover {
-    color: var(--accent);
+    display: none;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+.nav-links a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 }
 
 .nav-underline {
@@ -176,7 +168,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 40%;
+    height: 100%;
     background: var(--nav-bg);
     backdrop-filter: blur(20px);
     z-index: 2000;
@@ -495,7 +487,7 @@ body {
     gap: 2.5rem;
 }
 
-.projects-card {
+.project-card {
     background: var(--card);
     border-radius: 20px;
     overflow: hidden;
