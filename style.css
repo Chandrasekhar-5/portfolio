@@ -733,8 +733,9 @@ body {
     color: var(--primary);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: 800;
+    opacity: 0.9;
 }
 
 .read-more-btn {
