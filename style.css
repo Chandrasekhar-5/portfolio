@@ -481,6 +481,66 @@ body {
     100% {transform: translateX(100%);}
 }
 
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.see-all-btn {
+    padding: 0.8rem 2rem;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 25px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.see-all-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        var(--primary), 
+        var(--accent));
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.see-all-btn:hover {
+    color: white;
+    transform: translateY(-3px);
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.see-all-btn:hover::before {
+    width: 100%;
+}
+
+.see-all-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.see-all-btn:hover i {
+    transform: translateX(3px) translateY(-2px);
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
