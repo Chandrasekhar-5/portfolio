@@ -6,7 +6,7 @@ class ProjectRenderer {
     }
 
     
-    renderProjectCard(project, isModal = false) {
+    renderProjectCard(project) {
         const badgeHTML = project.badge ? 
             `<div class="project-badge">${project.badge}</div>` : '';
         
@@ -15,7 +15,7 @@ class ProjectRenderer {
         ).join('');
         
         return `
-            <div class="${isModal ? 'modal-project-card' : 'project-card project-hover'}" data-id="${project.id}">
+            <div class="project-card project-hover" data-id="${project.id}">
                 <div class="project-img">
                     <div class="project-overlay">
                         <div class="project-links">
@@ -51,31 +51,23 @@ class ProjectRenderer {
         if (!container) return;
         
         container.innerHTML = featuredProjects.map(project => 
-            this.renderProjectCard(project, false)
+            this.renderProjectCard(project)
         ).join('');
         
         this.attachReadMoreListeners();
     }
 
     
-    renderAllProjectsModal() {
-        const modalContent = this.projects.map(project => 
-            this.renderProjectCard(project, true)
+    renderAllProjects() {
+        const container = document.querySelector('.projects-grid');
+
+        if(!container) return;
+
+        container.innerHTML = this.projects.map(project => 
+            this.renderProjectCard(project)
         ).join('');
-        
-        return `
-            <div class="projects-modal">
-                <div class="modal-header">
-                    <h2>All Projects (${this.projects.length})</h2>
-                    <button class="modal-close">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="modal-grid">
-                    ${modalContent}
-                </div>
-            </div>
-        `;
+
+        this.attachReadMoreListeners();
     }
 
     
