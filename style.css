@@ -488,6 +488,22 @@ body {
     gap: 2.5rem;
 }
 
+#projects .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#projects .section-title {
+    margin-bottom: 1.5rem;
+}
+
+#projects .see-all-btn {
+    margin-top: 1rem;
+}
+
 /* ===========================================
    CARDS COMPONENTS
    =========================================== */
@@ -769,7 +785,7 @@ body {
 }
 
 /* ===========================================
-   MODAL OVERLAY - FIXED VERSION
+   MODAL OVERLAY
    =========================================== */
 .modal-overlay {
     position: fixed;
@@ -777,8 +793,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.98); 
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.85); 
     z-index: 2000;
     display: flex;
     align-items: flex-start;
@@ -788,13 +803,34 @@ body {
     overflow-y: auto;
 }
 
+.modal-overlay::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-overlay::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.modal-overlay::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 4px;
+}
+
+.modal-overlay::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent), var(--primary));
+}
+
 
 body.modal-open {
-    overflow: hidden;
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 .modal {
-    background: var(--bg); 
+    background: var(--bg-light); 
     border-radius: 25px;
     padding: 3rem;
     max-width: 1400px;
@@ -807,6 +843,24 @@ body.modal-open {
     position: relative;
 }
 
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent), var(--primary));
+}
+
 /* Modal Header */
 .modal-header {
     display: flex;
@@ -815,6 +869,11 @@ body.modal-open {
     margin-bottom: 2.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: -45px;
+    background: var(--bg-light);
+    z-index: 10;
+    padding-top: 1rem;
 }
 
 .modal-header h2 {
