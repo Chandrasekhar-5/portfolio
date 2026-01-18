@@ -1,3 +1,6 @@
+/* ===========================================
+   CSS VARIABLES
+   =========================================== */
 :root {
   --bg: #0f172a;
   --bg-light: #111827;
@@ -37,8 +40,46 @@ body {
     background: var(--bg);
     color: var(--text);
     transition: background 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
 }
 
+/* ===========================================
+   UTILITIES & ANIMATIONS
+   =========================================== */
+@keyframes scroll {
+    0% {top: 10px; opacity: 1;}
+    100% {top: 30px; opacity: 0;}
+}
+
+@keyframes shimmer {
+    0% {transform: translateX(-100%);}
+    100% {transform: translateX(100%);}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================
+   SCROLL & CURSOR EFFECTS
+   =========================================== */
 .scroll-progress {
     position: fixed;
     width: 100%;
@@ -57,6 +98,21 @@ body {
     border-radius: 0 2px 2px 0;
 }
 
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    mix-blend-mode: screen;
+}
+
+/* ===========================================
+   HEADER & NAVIGATION
+   =========================================== */
 .header {
     position: fixed;
     width: 100%;
@@ -130,6 +186,7 @@ body {
     z-index: 1;
 }
 
+/* Theme Toggle */
 .theme-btn {
     background: var(--card);
     border: none;
@@ -149,6 +206,7 @@ body {
     transform: rotate(15deg);
 }
 
+/* Mobile Navigation */
 .mobile-menu-btn {
     display: none;
     border: none;
@@ -225,6 +283,9 @@ body {
     color: var(--accent);
 }
 
+/* ===========================================
+   SECTIONS & LAYOUT
+   =========================================== */
 .section {
     max-width: 1200px;
     margin: auto;
@@ -240,7 +301,7 @@ body {
 }
 
 .section-title {
-    font-size:  2.5rem;
+    font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
@@ -269,6 +330,18 @@ body {
     background: linear-gradient(to right, transparent, var(--border), transparent);
 }
 
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -304,46 +377,6 @@ body {
     margin-right: auto;
 }
 
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top:1.5rem;
-    padding: 1rem 2.5rem;
-    border-radius: 30px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(135deg, var(--accent), var(--primary));
-    transition: width 0.5s ease;
-    z-index: -1;
-}
-
-.btn:hover::before {
-    width: 100%;
-}
-
-.btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-}
-
 .hero-scroll-indicator {
     position: absolute;
     bottom: 3rem;
@@ -377,48 +410,18 @@ body {
     animation: scroll 2s infinite;
 }
 
-@keyframes scroll {
-    0% {top: 10px; opacity: 1;}
-    100% {top: 30px; opacity: 0;}
-}
-
+/* ===========================================
+   ABOUT SECTION
+   =========================================== */
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
-.card {
-    background: var(--card);
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    transition: all 0.4s ease;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-
-.card-hover:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-}
-
-.card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-}
-
-.card p {
-    color: var(--muted);
-    line-height: 1.6;
-}
-
+/* ===========================================
+   SKILLS SECTION
+   =========================================== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -476,163 +479,50 @@ body {
     animation: shimmer 2s infinite;
 }
 
-@keyframes shimmer {
-    0% {transform: translateX(-100%);}
-    100% {transform: translateX(100%);}
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.see-all-btn {
-    padding: 0.8rem 2rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border: 1.5px solid var(--border);
-    border-radius: 25px;
-    color: var(--text);
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.see-all-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(135deg, 
-        var(--accent), 
-        var(--primary));
-    transition: width 0.3s ease;
-    z-index: -1;
-}
-
-.see-all-btn:hover {
-    color: white;
-    transform: translateY(-3px);
-    border-color: transparent;
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
-}
-
-.see-all-btn:hover::before {
-    width: 100%;
-}
-
-.see-all-btn i {
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
-}
-
-.see-all-btn:hover i {
-    transform: translateX(3px) translateY(-2px);
-}
-
-
-/* modal-overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 2000;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 4rem 2rem;
-    animation: fadeIn 0.3s ease;
-    overflow-y: auto;
-}
-
-.modal {
-    background: var(--card);
-    border-radius: 25px;
-    padding: 3rem;
-    max-width: 1400px;
-    width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
-    border: 1px solid var(--border);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.4s ease;
-    position: relative;
-}
-
-/* Modal Header */
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
-}
-
-.modal-header h2 {
-    font-size: 2.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.modal-close {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-close:hover {
-    background: var(--primary);
-    color: white;
-    transform: rotate(90deg);
-}
-
+/* ===========================================
+   PROJECTS SECTION
+   =========================================== */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5rem;
 }
 
-.modal-projects .project-card {
+/* ===========================================
+   CARDS COMPONENTS
+   =========================================== */
+.card {
     background: var(--card);
+    padding: 2.5rem 2rem;
     border-radius: 20px;
-    overflow: hidden;
+    transition: all 0.4s ease;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
-    transition: all 0.4s ease;
 }
 
-.modal-projects .project-card:hover {
+.card-hover:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.card p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* PROJECT CARD - FIXED VERSION */
 .project-card {
     background: var(--card);
     border-radius: 20px;
@@ -722,6 +612,7 @@ body {
     line-height: 1.6;
 }
 
+/* FIXED: Better technology tags visibility */
 .project-tech {
     display: flex;
     flex-wrap: wrap;
@@ -729,13 +620,105 @@ body {
 }
 
 .project-tech span {
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--primary);
-    padding: 0.3rem 0.8rem;
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent); 
+    padding: 0.4rem 0.9rem;
     border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600; 
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top:1.5rem;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+}
+
+.see-all-btn {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border: 1.5px solid var(--border);
+    border-radius: 25px;
+    color: var(--text);
+    font-weight: 600;
     font-size: 0.95rem;
-    font-weight: 800;
-    opacity: 0.9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.see-all-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.see-all-btn:hover {
+    color: white;
+    transform: translateY(-3px);
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.see-all-btn:hover::before {
+    width: 100%;
+}
+
+.see-all-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.see-all-btn:hover i {
+    transform: translateX(3px) translateY(-2px);
 }
 
 .read-more-btn {
@@ -785,6 +768,103 @@ body {
     transform: translateX(3px);
 }
 
+/* ===========================================
+   MODAL OVERLAY - FIXED VERSION
+   =========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.98); 
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 4rem 2rem;
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    background: var(--bg); 
+    border-radius: 25px;
+    padding: 3rem;
+    max-width: 1400px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4); 
+    animation: slideUp 0.4s ease;
+    position: relative;
+}
+
+/* Modal Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-close {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--card); 
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: var(--primary);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Modal projects should have different styling */
+.modal-projects .project-card {
+    background: var(--card);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+.modal-projects .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+}
+
+/* ===========================================
+   CONTACT SECTION
+   =========================================== */
 .contact-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -858,10 +938,13 @@ body {
     box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
 }
 
+/* ===========================================
+   FOOTER
+   =========================================== */
 .footer {
-    background: #1e293b;
+    background: var(--card);
     padding: 4rem 2rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--border);
 }
 
 .footer-content {
@@ -873,12 +956,12 @@ body {
 .footer-logo {
     font-size: 2rem;
     font-weight: 700;
-    color: #6366f1;
+    color: var(--primary);
     margin-bottom: 1rem;
 }
 
 .footer-tagline {
-    color: #94a3b8;
+    color: var(--muted);
     margin-bottom: 2rem;
     font-size: 1.1rem;
 }
@@ -893,71 +976,32 @@ body {
 .footer-social a {
     width: 50px;
     height: 50px;
-    background: #0f172a;
+    background: var(--bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #e5e7eb;
+    color: var(--text);
     font-size: 1.3rem;
     transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
-    background: #6366f1;
+    background: var(--primary);
     color: white;
     transform: translateY(-5px);
 }
 
 .footer-copyright {
-    color: #94a3b8;
+    color: var(--muted);
     font-size: 0.9rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--border);
 }
 
-.cursor-glow {
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    pointer-events: none;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    mix-blend-mode: screen;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-.animated-text {
-    animation: fadeInUp 1s ease forwards;
-}
-
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
 @media (max-width: 992px) {
     .hero h1 {
         font-size: 2.8rem;
