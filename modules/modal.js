@@ -31,7 +31,7 @@ const modalModule = {
                     </button>
                 </div>
                 <div class="projects-grid modal-projects">
-                    ${this.projectsRenderer.projects.map(project => 
+                    ${this.projectRenderer.projects.map(project => 
                         this.projectRenderer.renderProjectCard(project)
                     ).join('')}
                 </div>
