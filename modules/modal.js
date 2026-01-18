@@ -2,6 +2,7 @@ import ProjectRenderer from '../utils/projectRenderer.js';
 
 const modalModule = {
     projectRenderer: null,
+    scrollPosition: 0,
     
     init() {
         this.projectRenderer = new ProjectRenderer();
@@ -19,6 +20,15 @@ const modalModule = {
     },
     
     createProjectsModal() {
+
+        this.scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.height = '100%';
+        document.body.style.top = `-${this.scrollPosition}px`;
+
         const modalOverlay = document.createElement('div');
         modalOverlay.className = 'modal-overlay';
         
@@ -54,6 +64,21 @@ const modalModule = {
             modalOverlay.style.opacity = '0';
             setTimeout(() => {
                 modalOverlay.remove();
+
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
+                document.body.style.height = '';
+                document.body.style.top = '';
+
+                document.body.getBoundingClientRect();
+
+                window.scrollTo({
+                top: this.scrollPosition,
+                behavior: 'instant'
+            });
+
+                document.removeEventListener('keydown', modalOverlay._escHandler);
             }, 300);
         };
         
