@@ -459,6 +459,7 @@ body {
 
 .skills-category {
   background: var(--card);
+  box-shadow: var(--shadow);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
   padding: 2rem;
@@ -468,7 +469,7 @@ body {
 
 .skills-category:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .skills-category-title {
@@ -546,6 +547,11 @@ body {
 .skill-icon i {
     font-size: 2rem;
     transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.github img {
+    width: 48px;
+    height: 48px;
 }
 
 .skill-name {
