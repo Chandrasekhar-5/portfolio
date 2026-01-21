@@ -19,10 +19,10 @@ class ProjectRenderer {
                 <div class="project-img">
                     <div class="project-overlay">
                         <div class="project-links">
-                            <a href="${project.liveUrl}" class="project-link">
+                            <a href="${project.liveUrl}" target = "_blank" class="project-link">
                                 <i class="fas fa-external-link-alt"></i> Live Preview
                             </a>
-                            <a href="${project.codeUrl}" class="project-link">
+                            <a href="${project.codeUrl}" target = "_blank" class="project-link">
                                 <i class="fab fa-github"></i> Code
                             </a>
                         </div>
