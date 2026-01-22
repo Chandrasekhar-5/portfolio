@@ -16,7 +16,10 @@ const projectsData = [
         liveUrl: "#",
         codeUrl: "https://github.com/Chandrasekhar-5/finance-dashboard-ui",
         badge: null,
-        image: "assets/project-img/finance.png"
+        images: {
+            light: "assets/project-img/finance-light.png",
+            dark: "assets/project-img/finance-dark.png"
+        }
     },
     {
         id: 3,
@@ -26,7 +29,10 @@ const projectsData = [
         liveUrl: "https://job-board-cb4.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/job-board",
         badge: "Open Source",
-        image: "assets/project-img/job.png"
+        images: {
+            light: "assets/project-img/job-light.png",
+            dark: "assets/project-img/job-dark.png"
+        }
     },
     {
         id: 4,
@@ -66,7 +72,10 @@ const projectsData = [
         liveUrl: "https://tip-calculator-dwi.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/tip-calculator",
         badge: "Interactive",
-        image: "assets/project-img/tip.png"
+        images: {
+            light: "assets/project-img/tip-light.png",
+            dark: "assets/project-img/tip-dark.png"
+        }
     },
     {
         id: 8,
@@ -76,7 +85,10 @@ const projectsData = [
         liveUrl: "https://countdown-timer-347.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/countdown-timer",
         badge: "Interactive",
-        image: "assets/project-img/timer.png"
+        images: {
+            light: "assets/project-img/timer-light.png",
+            dark: "assets/project-img/timer-dark.png"
+        }
     },
     {
         id: 9,
