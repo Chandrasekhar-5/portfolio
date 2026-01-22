@@ -664,9 +664,11 @@ body {
 
 .project-img {
     height: 200px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background-size: cover;
+    background-position: center;
     position: relative;
     overflow: hidden;
+    transition: opacity 0.25s ease;
 }
 
 .project-overlay {
@@ -675,7 +677,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -982,6 +984,7 @@ body.modal-open {
     background: var(--bg-light);
     z-index: 10;
     padding-top: 1rem;
+    border-radius: 0 0 20px 20px;
 }
 
 .modal-header h2 {
