@@ -15,7 +15,8 @@ const projectsData = [
         technologies: ["JavaScript", "GSAP", "CSS"],
         liveUrl: "#",
         codeUrl: "https://github.com/Chandrasekhar-5/finance-dashboard-ui",
-        badge: null
+        badge: null,
+        image: "assets/project-img/finance.png"
     },
     {
         id: 3,
@@ -24,7 +25,8 @@ const projectsData = [
         technologies: ["HTML", "CSS", "JavaScript"],
         liveUrl: "https://job-board-cb4.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/job-board",
-        badge: "Open Source"
+        badge: "Open Source",
+        image: "assets/project-img/job.png"
     },
     {
         id: 4,
@@ -33,7 +35,8 @@ const projectsData = [
         technologies: ["HTML", "CSS", "JavaScript"],
         liveUrl: "https://movie-database-d3t.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/movie-database",
-        badge: null
+        badge: null,
+        image: "assets/project-img/movie-database.png"
     },
     {
         id: 5,
@@ -42,7 +45,8 @@ const projectsData = [
         technologies: ["API", "JavaScript", "CSS"],
         liveUrl: "https://arcweather.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/ArcWeather",
-        badge: "API Integration"
+        badge: "API Integration",
+        image: "assets/project-img/weather.png"
     },
     {
         id: 6,
@@ -51,7 +55,8 @@ const projectsData = [
         technologies: ["Local Storage", "JavaScript", "UI/UX"],
         liveUrl: "https://expense-splitter-8mh.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/expense-splitter",
-        badge: "Interactive"
+        badge: "Interactive",
+        image: "assets/project-img/expense.png"
     },
     {
         id: 7,
@@ -60,7 +65,8 @@ const projectsData = [
         technologies: ["Local Storage", "JavaScript", "UI/UX"],
         liveUrl: "https://tip-calculator-dwi.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/tip-calculator",
-        badge: "Interactive"
+        badge: "Interactive",
+        image: "assets/project-img/tip.png"
     },
     {
         id: 8,
@@ -69,7 +75,8 @@ const projectsData = [
         technologies: ["Local Storage", "JavaScript", "UI/UX"],
         liveUrl: "https://countdown-timer-347.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/countdown-timer",
-        badge: "Interactive"
+        badge: "Interactive",
+        image: "assets/project-img/timer.png"
     },
     {
         id: 9,
@@ -78,7 +85,8 @@ const projectsData = [
         technologies: ["Local Storage", "JavaScript", "UI/UX"],
         liveUrl: "https://calculator-eie.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/Calculator",
-        badge: "Interactive"
+        badge: "Interactive",
+        image: "assets/project-img/calculator.png"
     },
     {
         id: 10,
@@ -87,7 +95,8 @@ const projectsData = [
         technologies: ["Local Storage", "JavaScript", "UI/UX"],
         liveUrl: "https://periodic-table-cii.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/periodic-table",
-        badge: "Interactive"
+        badge: "Interactive",
+        image: "assets/project-img/periodic.png"
     }
 ];
 
