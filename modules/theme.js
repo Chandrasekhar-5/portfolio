@@ -16,5 +16,7 @@ export function initTheme() {
         
         
         localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+
+        window.dispatchEvent(new Event('themeChanged'));
     });
 }
