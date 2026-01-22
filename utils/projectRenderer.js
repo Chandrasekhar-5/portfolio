@@ -3,7 +3,30 @@ import projectsData from '../data/projects.js';
 class ProjectRenderer {
     constructor() {
         this.projects = projectsData;
+        window.addEventListener('themeChanged', () => {
+            this.updateProjectImages();
+        });
     }
+
+    updateProjectImages() {
+    document.querySelectorAll('.project-card').forEach(card => {
+        const projectId = card.dataset.id;
+        const project = this.projects.find(p => p.id == projectId);
+        if (!project) return;
+
+        const imgDiv = card.querySelector('.project-img');
+        const newBg = this.getProjectBg(project);
+
+        if (!newBg) return;
+
+        imgDiv.style.opacity = '0';
+
+        setTimeout(() => {
+            imgDiv.style.backgroundImage = `url('${newBg}')`;
+            imgDiv.style.opacity = '1';
+        }, 150);
+    });
+}
 
     getProjectBg(project) {
         const isLight = document.body.classList.contains("light-mode");
