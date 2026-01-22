@@ -664,7 +664,8 @@ body {
 
 .project-img {
     height: 200px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background-size: cover;
+    background-position: center;
     position: relative;
     overflow: hidden;
 }
