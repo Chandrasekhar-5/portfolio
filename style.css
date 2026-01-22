@@ -668,6 +668,7 @@ body {
     background-position: center;
     position: relative;
     overflow: hidden;
+    transition: opacity 0.25s ease;
 }
 
 .project-overlay {
@@ -983,6 +984,7 @@ body.modal-open {
     background: var(--bg-light);
     z-index: 10;
     padding-top: 1rem;
+    border-radius: 0 0 20px 20px;
 }
 
 .modal-header h2 {
