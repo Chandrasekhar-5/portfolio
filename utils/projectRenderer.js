@@ -17,6 +17,7 @@ class ProjectRenderer {
         return `
             <div class="project-card project-hover" data-id="${project.id}">
                 <div class="project-img">
+                    <img src = "${project.image}" alt = "${project.title}">
                     <div class="project-overlay">
                         <div class="project-links">
                             <a href="${project.liveUrl}" target = "_blank" class="project-link">
