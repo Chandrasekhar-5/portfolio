@@ -164,9 +164,10 @@ body {
 
 .logo {
     color: var(--primary);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: -0.5px;
+    transsition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .nav-links-container {
@@ -227,6 +228,11 @@ body {
 
 .header-scrolled .nav {
     padding: 1rem 7rem;
+}
+
+.header-scrolled .logo {
+    transform: scale(0.88);
+    opacity: 0.95;
 }
 
 .light-mode .header-scrolled {
