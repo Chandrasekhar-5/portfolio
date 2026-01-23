@@ -12,6 +12,8 @@ import modalModule from './modules/modal.js';
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    initHeaderScroll();
+
     initScrollAnimations();
     initCursorGlow();
     initHeroAnimations();
@@ -30,6 +32,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateActiveLink();
 });
+
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll > 40) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+
+        lastScroll = currentScroll;
+    });
+}
 
 
 function initScrollProgress() {
