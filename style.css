@@ -1121,7 +1121,7 @@ body.modal-open {
     transform: rotate(90deg);
 }
 
-/* Modal projects should have different styling */
+/* Modal projects */
 .modal-projects .project-card {
     background: var(--card);
     border-radius: 20px;
@@ -1314,7 +1314,6 @@ body.modal-open {
     box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* Add badge to detail modal if project has one */
 .project-detail-badge {
     position: absolute;
     top: 1.5rem;
@@ -1327,6 +1326,102 @@ body.modal-open {
     font-weight: 600;
     z-index: 5;
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.project-features {
+    margin: 2rem 0;
+}
+
+.project-features h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.3rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.project-features h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.feature-tag {
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+    transform: translateY(-2px);
+    background: rgba(34, 211, 238, 0.2);
+    box-shadow: 0 5px 15px rgba(34, 211, 238, 0.1);
+}
+
+.project-detailed-description {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 16px;
+    border-left: 4px solid var(--primary);
+}
+
+.project-detailed-description h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.project-detailed-description p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.project-tech-details {
+    margin: 2rem 0;
+}
+
+.project-tech-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.project-tech-details h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.project-card-description {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
 }
 
 /* Responsive improvements */
