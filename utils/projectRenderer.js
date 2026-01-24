@@ -119,62 +119,65 @@ class ProjectRenderer {
 
     
     showProjectDetails(projectId) {
-        const project = this.projects.find(p => p.id == projectId);
-        if (!project) return;
+    const project = this.projects.find(p => p.id == projectId);
+    if (!project) return;
 
-        
-        document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 
-        const overlay = document.createElement('div');
-        overlay.className = 'modal-overlay project-detail-overlay';
+    const overlay = document.createElement('div');
+    overlay.className = 'modal-overlay project-detail-overlay';
 
-        const image = this.getProjectBg(project);
+    const image = this.getProjectBg(project);
 
-        overlay.innerHTML = `
-            <div class = "modal project-detail-modal">
-                <button class = "modal-close">&times;</button>
+    const badgeHTML = project.badge ? 
+        `<div class="project-detail-badge">${project.badge}</div>` : '';
+
+    overlay.innerHTML = `
+        <div class="modal project-detail-modal">
+            <button class="modal-close">&times;</button>
+            
+            <div class="project-detail-image"
+                style="background-image: url('${image}')">
+                ${badgeHTML}
+            </div>
+            
+            <div class="project-detail-content">
+                <h2>${project.title}</h2>
+                <p>${project.description}</p>
                 
-                <div class = "project-detail-image"
-                    style = "background-image: url('${image}')">
+                <div class="project-tech">
+                    ${project.technologies.map(t => `<span>${t}</span>`).join('')}
                 </div>
                 
-                <div class = "project-detail-content">
-                    <h2>${project.title}</h2>
-                    <p>${project.description}</p>
-                    
-                    <div class = "project-tech">
-                        ${project.technologies.map(t => `<span>${t}</span>`)}
-                    </div>
-                    
-                    <div class="project-detail-actions">
-                        ${project.liveUrl ? `
-                        <a href="${project.liveUrl}" target="_blank" class="btn">
-                            <i class="fas fa-external-link-alt"></i> Live Preview
-                        </a>` : ''}
+                <div class="project-detail-actions">
+                    ${project.liveUrl ? `
+                    <a href="${project.liveUrl}" target="_blank" class="btn">
+                        <i class="fas fa-external-link-alt"></i> Live Preview
+                    </a>` : ''}
 
-                        ${project.codeUrl ? `
-                        <a href="${project.codeUrl}" target="_blank" class="btn outline">
-                            <i class="fab fa-github"></i> Code
-                        </a>` : ''}
-                    </div>
+                    ${project.codeUrl ? `
+                    <a href="${project.codeUrl}" target="_blank" class="btn outline">
+                        <i class="fab fa-github"></i> View Code
+                    </a>` : ''}
                 </div>
             </div>
-        `;
+        </div>
+    `;
 
-        document.body.appendChild(overlay);
+    document.body.appendChild(overlay);
 
-        overlay.querySelector('.modal-close').addEventListener('click', () => {
+    overlay.querySelector('.modal-close').addEventListener('click', () => {
+        overlay.remove();
+        document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
             overlay.remove();
             document.body.style.overflow = '';
-        });
-
-        overlay.addEventListener('click', e => {
-            if (e.target === overlay) {
-                overlay.remove();
-                document.body.style.overflow = '';
-            }
-        });
-    }
+        }
+    });
+}
 }
 
 export default ProjectRenderer;
