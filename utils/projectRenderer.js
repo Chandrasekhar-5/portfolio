@@ -132,6 +132,15 @@ class ProjectRenderer {
     const badgeHTML = project.badge ? 
         `<div class="project-detail-badge">${project.badge}</div>` : '';
 
+    const featuresHTML = project.features ? `
+        <div class="project-features">
+            <h3>Key Features</h3>
+            <div class="features-list">
+                ${project.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+            </div>
+        </div>
+    ` : '';
+
     overlay.innerHTML = `
         <div class="modal project-detail-modal">
             <button class="modal-close">&times;</button>
@@ -143,19 +152,29 @@ class ProjectRenderer {
             
             <div class="project-detail-content">
                 <h2>${project.title}</h2>
-                <p>${project.description}</p>
+                <p class="project-card-description">${project.description}</p>
                 
-                <div class="project-tech">
-                    ${project.technologies.map(t => `<span>${t}</span>`).join('')}
+                <div class="project-detailed-description">
+                    <h3>Project Overview</h3>
+                    <p>${project.detailedDescription}</p>
+                </div>
+                
+                ${featuresHTML}
+                
+                <div class="project-tech-details">
+                    <h3>Technologies Used</h3>
+                    <div class="project-tech">
+                        ${project.technologies.map(t => `<span>${t}</span>`).join('')}
+                    </div>
                 </div>
                 
                 <div class="project-detail-actions">
-                    ${project.liveUrl ? `
+                    ${project.liveUrl && project.liveUrl !== '#' ? `
                     <a href="${project.liveUrl}" target="_blank" class="btn">
                         <i class="fas fa-external-link-alt"></i> Live Preview
                     </a>` : ''}
 
-                    ${project.codeUrl ? `
+                    ${project.codeUrl && project.codeUrl !== '#' ? `
                     <a href="${project.codeUrl}" target="_blank" class="btn outline">
                         <i class="fab fa-github"></i> View Code
                     </a>` : ''}
