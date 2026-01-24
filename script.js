@@ -10,6 +10,12 @@ import {
 } from './modules/animations.js';
 import modalModule from './modules/modal.js';
 
+const currentScroll = 0;
+const targetScroll = 0;
+const scrollVelocity = 0;
+
+const ease = 0.08;
+
 
 document.addEventListener('DOMContentLoaded', function() {
     initHeaderScroll();
@@ -32,6 +38,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateActiveLink();
 });
+
+window.addEventListener('scroll', () => {
+    targetScroll = window.scrollY;
+});
+
+function smoothScrollLoop() {
+    currentScroll += (targetScroll - currentScroll) * ease;
+
+    scrollVelocity = targetScroll - currentScroll;
+
+    runScrollEffects(currentScroll, scrollVelocity);
+
+    requestAnimationFrame(smoothScrollLoop);
+}
+smoothScrollLoop();
+
+function runScrollEffects(scrollY, velocity) {
+    homeAboutStacking(scrollY, velocity);
+}
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');
