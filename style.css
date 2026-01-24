@@ -138,6 +138,7 @@ body {
    HEADER & NAVIGATION
    =========================================== */
 .header {
+    height: 80px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -148,7 +149,10 @@ body {
     transition: 
         background 0.4s ease,
         box-shadow 0.4s ease,
-        transform 0.4s ease;
+        transform 0.4s ease,
+        border-radius 0.4s ease,
+        margin 0.4s ease;
+    margin: 0;
 }
 
 .nav {
@@ -249,24 +253,57 @@ body {
    SCROLLED HEADER
 ================================ */
 .header-scrolled {
-    background: rgba(15, 23, 42, 0.2);
+    height: 60px;
+    background: rgba(15, 23, 42, 0.4);
     box-shadow:
         0 0 15px rgba(99, 102, 241, 0.5);
-    transform: translateY(30px);
     border-radius: 32px;
+    transform: translateY(30px);
+    width: 65%;
+    max-width: 1200px;
+    margin: auto;
+    left: 0;
+    right: 0;
 }
 
 .header-scrolled .nav {
-    padding: 1rem 7rem;
+    height: 100%;
+    padding: 1rem 3rem;
+    max-width: 100%;
+    transition: padding 0.4s ease;
 }
 
 .header-scrolled .logo {
     transform: scale(0.88);
     opacity: 0.95;
+    transition: transform 0.4s ease;
 }
 
 .light-mode .header-scrolled {
-    background: rgba(248, 250, 252, 0.85);
+    background: rgba(248, 250, 252, 0.4);
+}
+
+.header-scrolled .logo {
+    transform: scale(0.85);
+    opacity: 0.95;
+}
+
+/* Navigation links adjustments */
+.header-scrolled .nav-links a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+}
+
+.header-scrolled .mobile-menu-btn {
+    width: 40px;
+    height: 40px;
+}
+
+/* Theme button adjustments */
+.header-scrolled .theme-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
 }
 
 /* Theme Toggle */
@@ -521,7 +558,7 @@ body {
   box-shadow: var(--shadow);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.6rem;
   backdrop-filter: blur(12px);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -534,7 +571,7 @@ body {
 .skills-category-title {
     font-size: 1.8rem;
     color: var(--text);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--border);
     position: relative;
@@ -561,7 +598,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.75rem;
     background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
     border-radius: 15px;
     border: 1px solid var(--border);
@@ -722,7 +759,7 @@ body {
 }
 
 .project-img {
-    height: 200px;
+    height: 170px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -783,7 +820,7 @@ body {
 }
 
 .project-content {
-    padding: 2rem;
+    padding: 1.4rem;
 }
 
 .project-content h3 {
@@ -794,7 +831,8 @@ body {
 .project-content p {
     color: var(--muted);
     margin-bottom: 1.5rem;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 /* FIXED: Better technology tags visibility */
@@ -857,6 +895,14 @@ body {
     box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
 }
 
+.see-all-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 .see-all-btn {
     padding: 0.8rem 2rem;
     background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -907,7 +953,7 @@ body {
 }
 
 .read-more-btn {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding: 0.8rem 1.5rem;
     background: transparent;
     border: 1.5px solid var(--primary);
@@ -1075,7 +1121,7 @@ body.modal-open {
     transform: rotate(90deg);
 }
 
-/* Modal projects should have different styling */
+/* Modal projects */
 .modal-projects .project-card {
     background: var(--card);
     border-radius: 20px;
@@ -1089,6 +1135,347 @@ body.modal-open {
     transform: translateY(-8px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     border-color: var(--accent);
+}
+
+/* ===============================
+   IMPROVED PROJECT DETAIL MODAL
+================================ */
+.project-detail-overlay {
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-detail-modal {
+    max-width: 900px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card);
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-detail-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+}
+
+.project-detail-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(to top, var(--card), transparent);
+}
+
+.project-detail-content {
+    padding: 2.5rem;
+    position: relative;
+}
+
+.project-detail-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.project-detail-content > p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Improved technologies section */
+.project-detail-content .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.project-detail-content .project-tech span {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(34, 211, 238, 0.15));
+    color: var(--primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+}
+
+.project-detail-content .project-tech span:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(34, 211, 238, 0.25));
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
+}
+
+/* Improved action buttons */
+.project-detail-actions {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.project-detail-actions .btn {
+    padding: 1rem 2.2rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.project-detail-actions .btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.project-detail-actions .btn:hover i {
+    transform: translateX(3px);
+}
+
+.project-detail-actions .btn.outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    position: relative;
+    z-index: 1;
+}
+
+.project-detail-actions .btn.outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.project-detail-actions .btn.outline:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+.project-detail-actions .btn.outline:hover::before {
+    width: 100%;
+}
+
+/* Improved close button */
+.project-detail-modal .modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.project-detail-modal .modal-close:hover {
+    background: var(--primary);
+    transform: rotate(90deg);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.project-detail-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.project-features {
+    margin: 2rem 0;
+}
+
+.project-features h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.3rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.project-features h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.feature-tag {
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+    transform: translateY(-2px);
+    background: rgba(34, 211, 238, 0.2);
+    box-shadow: 0 5px 15px rgba(34, 211, 238, 0.1);
+}
+
+.project-detailed-description {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 16px;
+    border-left: 4px solid var(--primary);
+}
+
+.project-detailed-description h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.project-detailed-description p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.project-tech-details {
+    margin: 2rem 0;
+}
+
+.project-tech-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.project-tech-details h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.project-card-description {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .project-detail-overlay {
+        padding: 1rem;
+    }
+    
+    .project-detail-modal {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .project-detail-image {
+        height: 200px;
+    }
+    
+    .project-detail-content {
+        padding: 1.5rem;
+    }
+    
+    .project-detail-content h2 {
+        font-size: 2rem;
+    }
+    
+    .project-detail-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .project-detail-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-detail-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .project-detail-image {
+        height: 180px;
+    }
+    
+    .project-detail-content .project-tech {
+        padding: 1rem;
+        gap: 0.6rem;
+    }
+    
+    .project-detail-content .project-tech span {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* ===========================================

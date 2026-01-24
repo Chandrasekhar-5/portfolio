@@ -119,13 +119,84 @@ class ProjectRenderer {
 
     
     showProjectDetails(projectId) {
-        const project = this.projects.find(p => p.id == projectId);
-        if (!project) return;
+    const project = this.projects.find(p => p.id == projectId);
+    if (!project) return;
 
-        
-        console.log('Showing details for:', project.title);
-        alert(`Details for ${project.title}\n\n${project.description}`);
-    }
+    document.body.style.overflow = 'hidden';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'modal-overlay project-detail-overlay';
+
+    const image = this.getProjectBg(project);
+
+    const badgeHTML = project.badge ? 
+        `<div class="project-detail-badge">${project.badge}</div>` : '';
+
+    const featuresHTML = project.features ? `
+        <div class="project-features">
+            <h3>Key Features</h3>
+            <div class="features-list">
+                ${project.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+            </div>
+        </div>
+    ` : '';
+
+    overlay.innerHTML = `
+        <div class="modal project-detail-modal">
+            <button class="modal-close">&times;</button>
+            
+            <div class="project-detail-image"
+                style="background-image: url('${image}')">
+                ${badgeHTML}
+            </div>
+            
+            <div class="project-detail-content">
+                <h2>${project.title}</h2>
+                <p class="project-card-description">${project.description}</p>
+                
+                <div class="project-detailed-description">
+                    <h3>Project Overview</h3>
+                    <p>${project.detailedDescription}</p>
+                </div>
+                
+                ${featuresHTML}
+                
+                <div class="project-tech-details">
+                    <h3>Technologies Used</h3>
+                    <div class="project-tech">
+                        ${project.technologies.map(t => `<span>${t}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="project-detail-actions">
+                    ${project.liveUrl && project.liveUrl !== '#' ? `
+                    <a href="${project.liveUrl}" target="_blank" class="btn">
+                        <i class="fas fa-external-link-alt"></i> Live Preview
+                    </a>` : ''}
+
+                    ${project.codeUrl && project.codeUrl !== '#' ? `
+                    <a href="${project.codeUrl}" target="_blank" class="btn outline">
+                        <i class="fab fa-github"></i> View Code
+                    </a>` : ''}
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.querySelector('.modal-close').addEventListener('click', () => {
+        overlay.remove();
+        document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
+            overlay.remove();
+            document.body.style.overflow = '';
+        }
+    });
+}
 }
 
 export default ProjectRenderer;
