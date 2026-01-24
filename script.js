@@ -10,8 +10,16 @@ import {
 } from './modules/animations.js';
 import modalModule from './modules/modal.js';
 
+const currentScroll = 0;
+const targetScroll = 0;
+const scrollVelocity = 0;
+
+const ease = 0.08;
+
 
 document.addEventListener('DOMContentLoaded', function() {
+    initHeaderScroll();
+
     initScrollAnimations();
     initCursorGlow();
     initHeroAnimations();
@@ -30,6 +38,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     updateActiveLink();
 });
+
+window.addEventListener('scroll', () => {
+    targetScroll = window.scrollY;
+});
+
+function smoothScrollLoop() {
+    currentScroll += (targetScroll - currentScroll) * ease;
+
+    scrollVelocity = targetScroll - currentScroll;
+
+    runScrollEffects(currentScroll, scrollVelocity);
+
+    requestAnimationFrame(smoothScrollLoop);
+}
+smoothScrollLoop();
+
+function runScrollEffects(scrollY, velocity) {
+    homeAboutStacking(scrollY, velocity);
+}
+
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        
+        if (currentScroll > 40) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+
+        lastScroll = currentScroll;
+    });
+}
 
 
 function initScrollProgress() {

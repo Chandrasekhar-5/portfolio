@@ -145,7 +145,10 @@ body {
     backdrop-filter: blur(12px);
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: background 0.5s ease;
+    transition: 
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.4s ease;
 }
 
 .nav {
@@ -154,15 +157,47 @@ body {
     justify-content: space-between;
     align-items: center;
     max-width: 1400px;
-    padding: 1.2rem 1rem;
+    padding: 1.2rem 5rem;
+    transition: padding 0.4s ease;
     position: relative;
 }
 
 .logo {
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--primary);
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.08px;
+    position: relative;
+    cursor: pointer;
+    transsition: 
+        transform 0.4s ease, 
+        opacity 0.4s ease,
+        text-shadow 0.4s ease;
+        color 0.4s ease;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 12px;
+    background: radial-gradient(
+        circle,
+        rgba(99, 102, 241, 0.35),
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.logo:hover::after {
+    opacity: 1;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
 }
 
 .nav-links-container {
@@ -208,6 +243,30 @@ body {
     transition: all 0.4s ease;
     opacity: 0;
     z-index: 1;
+}
+
+/* ===============================
+   SCROLLED HEADER
+================================ */
+.header-scrolled {
+    background: rgba(15, 23, 42, 0.2);
+    box-shadow:
+        0 0 15px rgba(99, 102, 241, 0.5);
+    transform: translateY(30px);
+    border-radius: 32px;
+}
+
+.header-scrolled .nav {
+    padding: 1rem 7rem;
+}
+
+.header-scrolled .logo {
+    transform: scale(0.88);
+    opacity: 0.95;
+}
+
+.light-mode .header-scrolled {
+    background: rgba(248, 250, 252, 0.85);
 }
 
 /* Theme Toggle */
@@ -1124,6 +1183,7 @@ body.modal-open {
 }
 
 .footer-logo {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: #6366f1;
