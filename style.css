@@ -786,7 +786,7 @@ body {
 }
 
 .project-content {
-    padding: 1.5rem;
+    padding: 1.4rem;
 }
 
 .project-content h3 {
@@ -911,7 +911,7 @@ body {
 }
 
 .read-more-btn {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding: 0.8rem 1.5rem;
     background: transparent;
     border: 1.5px solid var(--primary);
@@ -1093,6 +1093,54 @@ body.modal-open {
     transform: translateY(-8px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     border-color: var(--accent);
+}
+
+/* ===============================
+   PROJECT DETAIL MODAL
+================================ */
+.project-detail-modal {
+    max-width: 1000px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.project-detail-image {
+    height: 360px;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-detail-content {
+    padding: 2rem;
+}
+
+.project-detail-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-detail-content p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-detail-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.project-detail-actions .btn.outline {
+    background: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+}
+
+.project-detail-actions .btn.outline:hover {
+    background: var(--primary);
+    color: white;
 }
 
 /* ===========================================
