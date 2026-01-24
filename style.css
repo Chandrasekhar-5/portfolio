@@ -256,11 +256,17 @@ body {
         0 0 15px rgba(99, 102, 241, 0.5);
     transform: translateY(30px);
     border-radius: 32px;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    max-width: 1000px;
+    transition: all 0.4s ease;
 }
 
 .header-scrolled .nav {
     height: 100%;
-    padding: 1rem 7rem;
+    padding: 1rem 3rem;
+    max-width: 100%;
 }
 
 .header-scrolled .logo {
