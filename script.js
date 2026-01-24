@@ -10,9 +10,9 @@ import {
 } from './modules/animations.js';
 import modalModule from './modules/modal.js';
 
-const currentScroll = 0;
-const targetScroll = 0;
-const scrollVelocity = 0;
+let currentScroll = 0;
+let targetScroll = 0;
+let scrollVelocity = 0;
 
 const ease = 0.08;
 
