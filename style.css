@@ -867,6 +867,14 @@ body {
     box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
 }
 
+.see-all-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 .see-all-btn {
     padding: 0.8rem 2rem;
     background: linear-gradient(135deg, var(--primary), var(--accent));
