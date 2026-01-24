@@ -77,7 +77,6 @@ function initHeaderScroll() {
     });
 }
 
-
 function initScrollProgress() {
     const scrollProgress = document.querySelector('.scroll-progress .scroll-bar');
     
