@@ -138,6 +138,7 @@ body {
    HEADER & NAVIGATION
    =========================================== */
 .header {
+    height: 80px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -249,6 +250,7 @@ body {
    SCROLLED HEADER
 ================================ */
 .header-scrolled {
+    height: 50px;
     background: rgba(15, 23, 42, 0.2);
     box-shadow:
         0 0 15px rgba(99, 102, 241, 0.5);
@@ -257,6 +259,7 @@ body {
 }
 
 .header-scrolled .nav {
+    height: 100%;
     padding: 1rem 7rem;
 }
 
