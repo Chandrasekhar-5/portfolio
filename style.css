@@ -413,6 +413,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
     transition: all 1s ease;
+    transform-style: preserve-3d;
 }
 
 .section.show {
@@ -720,6 +721,12 @@ body {
     box-shadow: var(--shadow);
 }
 
+.card,
+.project-card {
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease;
+}
+
 .card-hover:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -751,6 +758,7 @@ body {
     box-shadow: var(--shadow);
     transition: all 0.4s ease;
     position: relative;
+    will-change: transform;
 }
 
 .project-card:hover {
@@ -1492,6 +1500,10 @@ body.modal-open {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
 }
+
+
+
+
 
 /* Responsive improvements */
 @media (max-width: 768px) {
