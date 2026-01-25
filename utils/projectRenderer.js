@@ -52,7 +52,7 @@ class ProjectRenderer {
         const bgStyle = bgImage ? `background-image: url('${bgImage}')` : '';
         
         return `
-            <div class="project-card project-hover" data-id="${project.id}">
+            <div class="project-card project-hover depth-card" data-depth="0.25" data-id="${project.id}">
                 <div class="project-img" style="${bgStyle}">
                     <div class="project-overlay">
                         <div class="project-links">
