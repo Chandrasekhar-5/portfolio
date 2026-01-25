@@ -288,7 +288,6 @@ body {
     opacity: 0.95;
 }
 
-/* Navigation links adjustments */
 .header-scrolled .nav-links a {
     font-size: 0.95rem;
     padding: 0.4rem 0;
@@ -299,14 +298,12 @@ body {
     height: 40px;
 }
 
-/* Theme button adjustments */
 .header-scrolled .theme-btn {
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
 }
 
-/* Theme Toggle */
 .theme-btn {
     background: var(--card);
     border: none;
@@ -463,29 +460,27 @@ body {
 /* ================================
    HOME → ABOUT STACK TRANSITION
 ================================ */
-.stack-root {
+.stack-wrapper {
     position: relative;
-    height: 200vh;
+    height: 220vh;
 }
 
 .stack-home,
 .stack-about {
-    position: fixed;
-    inset: 0;
+    position: sticky;
+    top: 0;
     height: 100vh;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
 }
 
 .stack-about {
     transform: translateY(100%);
     opacity: 1;
+    background: var(--bg);
+    z-index: 2;
 }
 
-.stack-root > section:not(.stack-home):not(.stack-about) {
-    position: relative;
-    top: 100vh;
+.stack-home {
+    z-index: 1;
 }
 
 
@@ -772,7 +767,6 @@ body {
     line-height: 1.6;
 }
 
-/* PROJECT CARD - FIXED VERSION */
 .project-card {
     background: var(--card);
     border-radius: 20px;
@@ -865,7 +859,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* FIXED: Better technology tags visibility */
 .project-tech {
     display: flex;
     flex-wrap: wrap;
@@ -1291,7 +1284,6 @@ body.modal-open {
     border-bottom: 1px solid var(--border);
 }
 
-/* Improved technologies section */
 .project-detail-content .project-tech {
     display: flex;
     flex-wrap: wrap;
@@ -1320,7 +1312,6 @@ body.modal-open {
     box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
 }
 
-/* Improved action buttons */
 .project-detail-actions {
     display: flex;
     gap: 1.2rem;
@@ -1386,7 +1377,6 @@ body.modal-open {
     width: 100%;
 }
 
-/* Improved close button */
 .project-detail-modal .modal-close {
     position: absolute;
     top: 1.5rem;
