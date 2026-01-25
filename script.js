@@ -1,11 +1,14 @@
 import { initTheme } from './modules/theme.js';
 import { initNavigation } from './modules/navigation.js';
+import { initParallaxEngine } from './modules/parallaxEngine.js';
+import { initGridBackground } from './modules/gridBackground.js';
 import { 
     initScrollAnimations, 
     animateMobileNavLinks, 
     resetMobileNavLinks, 
     animateSkillBars, 
-    initCursorGlow, 
+    initCursorGlow,
+    init3DCards, 
     initHeroAnimations 
 } from './modules/animations.js';
 import modalModule from './modules/modal.js';
@@ -21,8 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeaderScroll();
 
     initScrollAnimations();
+
     initCursorGlow();
+
     initHeroAnimations();
+
+    initParallaxEngine();
+
+    initGridBackground();
+
+    init3DCards();
     
     initTheme();
     
