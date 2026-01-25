@@ -1,3 +1,40 @@
+import { getScrollVelocity } from "./parallaxEngine.js";
+
+export function init3DCards() {
+  document.querySelectorAll(".card, .project-card").forEach(card => {
+
+    card.addEventListener("mousemove", e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+
+      const rx = ((y / r.height) - 0.5) * 10;
+      const ry = ((x / r.width) - 0.5) * -10;
+
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(${rx}deg)
+        rotateY(${ry}deg)
+        translateZ(20px)
+      `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+    });
+  });
+}
+
+export function animateFloatingCards() {
+  const velocity = getScrollVelocity();
+
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.style.transform += `
+      translateY(${velocity * 0.4}px)
+    `;
+  });
+}
+
 export function initScrollAnimations() {
     const sections = document.querySelectorAll('.section');
     
