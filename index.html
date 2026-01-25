@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+    <div id="grid-root"></div>
     <div class = "scroll-progress">
         <div class = "scroll-bar"></div>
     </div>
@@ -51,7 +51,8 @@
         </ul>
     </div>
 
-    <section id = "home" class = "section hero">
+    <main class = "scroll-root">
+    <section id = "home" class = "section hero parallax-layer" data-depth="0.1">
         <div class = "hero-content">
             <h1>Hi, I'm <span class="animated-text">Chandra sekhar</span></h1>
             <p class = "hero-subtitle">Building clean, modern and premium web experiences.</p>
@@ -71,7 +72,7 @@
     <section class = "section" id = "about">
         <h2 class = "section-title"><span>About Me</span></h2>
         <div class = "about-grid">
-            <div class = "card card-hover">
+            <div class = "card card-hover tilt-card">
                 <div class = "card-icon">
                     <i class = "fas fa-code"></i>
                 </div>
@@ -79,7 +80,7 @@
                 <p>I am a frontend developer who loves design, animations and performance. Passionate about creating engaging user experiences.</p>
             </div>
 
-            <div class = "card card-hover">
+            <div class = "card card-hover tilt-card">
                 <div class = "card-icon">
                     <i class = "fas fa-layer-group"></i>
                 </div>
@@ -87,7 +88,7 @@
                 <p>Focused on building open‑source, scalable and accessible UI systems that are both beautiful and functional.</p>
             </div>
 
-            <div class="card card-hover">
+            <div class="card card-hover tilt-card">
                 <div class="card-icon">
                     <i class="fas fa-rocket"></i>
                 </div>
@@ -274,6 +275,7 @@
             </form>
         </div>
     </section>
+    </main>
 
     <footer class = "footer">
         <div class = "footer-content">
