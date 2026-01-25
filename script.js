@@ -58,6 +58,48 @@ function runScrollEffects(scrollY, velocity) {
     homeAboutStacking(scrollY, velocity);
 }
 
+let stackLocked = false;
+
+function homeAboutStacking(scrollY) {
+    const root = document.querySelector('.stack-root');
+    const home = document.querySelector('.stack-home');
+    const about = document.querySelector('.stack-about');
+
+    if (!root || !home || !about) return;
+
+    const start = root.offsetTop;
+    const end = start + window.innerHeight;
+
+    if (scrollY >= start && scrollY <= end) {
+        if (!stackLocked) {
+            document.body.style.overflow = 'hidden';
+            stackLocked = true;
+        }
+
+        const t = (scrollY - start) / window.innerHeight;
+
+        home.style.opacity = `${1 - t}`;
+        home.style.transform = `
+            scale(${1 - t * 0.15})
+            translateY(${-t * 80}px)
+            `;
+
+        about.style.transform = `translateY(${(1 - t) * 100}%)`;
+
+    } else {
+        if (stackLocked && scrollY > end) {
+            document.body.style.overflow = '';
+            stackLocked = false;
+
+            home.style.position = 'relative';
+            about.style.position = 'relative';
+
+            about.style.transform = 'translateY(0)';
+            about.style.opacity = '1';
+        }
+    }        
+}
+
 function initHeaderScroll() {
     const header = document.querySelector('.header');
     if (!header) return;
