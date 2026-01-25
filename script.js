@@ -58,7 +58,6 @@ function runScrollEffects() {
     homeAboutStacking(window.scrollY);
 }
 
-let stackLocked = false;
 
 function homeAboutStacking(scrollY) {
     const wrapper = document.querySelector('.stack-wrapper');
@@ -68,18 +67,14 @@ function homeAboutStacking(scrollY) {
     if (!wrapper || !home || !about) return;
 
     const start = wrapper.offsetTop;
-    const end = start + window.innerHeight;
     const progress = (scrollY - start) / window.innerHeight;
-
     const t = Math.min(Math.max(progress, 0), 1);
 
-    home.style.opacity = `${1 - t}`;
+    home.style.opacity = 1 - t;
     home.style.transform = `scale(${1 - t * 0.12})`;
-    home.style.filter = `blur(${t * 6}px)`;
 
     about.style.transform = `translateY(${(1 - t) * 100}%)`;
 }
-
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');

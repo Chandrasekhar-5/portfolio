@@ -456,34 +456,6 @@ body {
     gap: 1rem;
 }
 
-
-/* ================================
-   HOME → ABOUT STACK TRANSITION
-================================ */
-.stack-wrapper {
-    position: relative;
-    height: 220vh;
-}
-
-.stack-home,
-.stack-about {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-}
-
-.stack-about {
-    transform: translateY(100%);
-    opacity: 1;
-    background: var(--bg);
-    z-index: 2;
-}
-
-.stack-home {
-    z-index: 1;
-}
-
-
 /* ===========================================
    HERO SECTION
    =========================================== */
@@ -1512,6 +1484,30 @@ body.modal-open {
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
 }
+
+/* HOME → ABOUT STACK BASE */
+.stack-wrapper {
+  position: relative;
+  height: 200vh;
+}
+
+.stack-home,
+.stack-about {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* About starts below viewport */
+.stack-about {
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+.stack-home {
+  z-index: 1;
+}
+
 
 /* Responsive improvements */
 @media (max-width: 768px) {
