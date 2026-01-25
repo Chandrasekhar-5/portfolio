@@ -174,7 +174,7 @@ body {
     letter-spacing: -0.08px;
     position: relative;
     cursor: pointer;
-    transsition: 
+    transition: 
         transform 0.4s ease, 
         opacity 0.4s ease,
         text-shadow 0.4s ease;
@@ -458,6 +458,36 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
 }
+
+
+/* ================================
+   HOME → ABOUT STACK TRANSITION
+================================ */
+.stack-root {
+    position: relative;
+    height: 200vh;
+}
+
+.stack-home,
+.stack-about {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.stack-about {
+    transform: translateY(100%);
+    opacity: 1;
+}
+
+.stack-root > section:not(.stack-home):not(.stack-about) {
+    position: relative;
+    top: 100vh;
+}
+
 
 /* ===========================================
    HERO SECTION
