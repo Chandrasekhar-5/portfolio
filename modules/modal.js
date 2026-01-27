@@ -31,11 +31,13 @@ const modalModule = {
 
         const modalOverlay = document.createElement('div');
         modalOverlay.className = 'modal-overlay';
+
+        const available = this.projectRenderer.projects.filter(project => !project.comingSoon).length;
         
         modalOverlay.innerHTML = `
             <div class="modal">
                 <div class="modal-header">
-                    <h2>All Projects</h2>
+                    <h2>All Projects (${available})</h2>
                     <button class="modal-close">
                         <i class="fas fa-times"></i>
                     </button>
