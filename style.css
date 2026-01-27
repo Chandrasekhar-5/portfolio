@@ -1471,10 +1471,16 @@ body.modal-open {
 }
 
 .features-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    padding: 1.2rem;
     margin-top: 1rem;
+}
+
+.feature-list li {
+  list-style: disc;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .feature-tag {
