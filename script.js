@@ -67,14 +67,36 @@ function homeAboutStacking(scrollY) {
     if (!wrapper || !home || !about) return;
 
     const start = wrapper.offsetTop;
-    const progress = (scrollY - start) / window.innerHeight;
-    const t = Math.min(Math.max(progress, 0), 1);
+    const end = start + window.innerHeight;
 
-    home.style.opacity = 1 - t;
+    if (scrollY <= start) {
+        home.style.opacity = '1';
+        home.style.transform = 'scale(1)';
+        home.style.filter = 'blur(0px)';
+        about.style.transform = 'translateY(100%)';
+        return;
+    }
+
+    if (scrollY >= end) {
+        home.style.opacity = '0';
+        home.style.transform = 'scale(0.88)';
+        home.style.filter = 'blur(6px)';
+        about.style.transform = 'translateY(0)';
+        return;
+    }
+
+    const linear = (scrollY - start) / window.innerHeight;
+
+    const t = linear < 0.5
+        ? 16 * Math.pow(linear, 5)
+        : 1 - Math.pow(-2 * linear + 2, 5) / 2;
+
+    home.style.opacity = `${1 - t}`;
     home.style.transform = `scale(${1 - t * 0.12})`;
-
+    home.style.filter = `blur(${t * 6}px)`;
     about.style.transform = `translateY(${(1 - t) * 100}%)`;
 }
+
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');
