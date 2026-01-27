@@ -2,13 +2,16 @@ const projectsData = [
     {
         id: 1,
         title: "PrepPulse",
-        description: "Modern UI with clean architecture, responsive design, and smooth animations.",
+        description: "Coming soon. A next-gen exam preparation platform.",
         detailedDescription: "A comprehensive exam preparation platform featuring a modern dashboard, practice tests, and performance analytics. Built with pure HTML, CSS, and JavaScript, it includes interactive quiz modules, progress tracking, and a clean user interface optimized for study sessions.",
         technologies: ["HTML", "CSS", "JavaScript"],
-        liveUrl: "#",
-        codeUrl: "#",
-        badge: "New",
-        features: ["Interactive Quizzes", "Progress Tracking", "Responsive Design", "Performance Analytics"]
+        liveUrl: null,
+        codeUrl: null,
+        badge: "Coming Soon",
+        comingSoon: true,
+        features: ["Interactive Quizzes", "Progress Tracking", "Responsive Design", "Performance Analytics","Adaptive practice system for competitive exams",
+    "Performance-based analytics dashboard",
+    "Modern distraction-free study UI"]
     },
     {
         id: 2,
@@ -16,7 +19,7 @@ const projectsData = [
         description: "Frontend‑only application with advanced animations and interactive elements.",
         detailedDescription: "A comprehensive financial dashboard displaying real-time metrics, charts, and transaction history. Features include interactive data visualization using GSAP animations, dark/light mode, and mock API integration for financial data simulation.",
         technologies: ["JavaScript", "GSAP", "CSS"],
-        liveUrl: "#",
+        liveUrl: "https://finance-dashboard-simulator.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/finance-dashboard-ui",
         badge: null,
         features: ["GSAP Animations", "Dark/Light Mode", "Interactive Charts", "Mock API Data"],
