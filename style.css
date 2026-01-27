@@ -167,7 +167,7 @@ body {
 }
 
 .logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Anta", sans-serif;
     color: var(--primary);
     font-size: 1.9rem;
     font-weight: 700;
@@ -474,6 +474,7 @@ body {
 }
 
 .hero h1 {
+    font-family: "Anta", sans-serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -486,6 +487,7 @@ body {
 }
 
 .hero-subtitle {
+    font-family: "Anta", sans-serif;
     font-size: 1.4rem;
     color: var(--muted);
     margin-bottom: 2rem;
@@ -1742,7 +1744,7 @@ body.modal-open {
 }
 
 .footer-logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Anta", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: #6366f1;
@@ -1750,6 +1752,7 @@ body.modal-open {
 }
 
 .footer-tagline {
+    font-family: "Anta", sans-serif;
     color: #94a3b8;
     margin-bottom: 2rem;
     font-size: 1.1rem;
