@@ -1569,6 +1569,22 @@ body.modal-open {
 
 /* Responsive improvements */
 @media (max-width: 768px) {
+    .mobile-nav-links a {
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .mobile-nav-links li {
+        margin: 1.2rem 0;
+    }
+
+    .mobile-nav-close {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
     .project-detail-overlay {
         padding: 1rem;
     }
