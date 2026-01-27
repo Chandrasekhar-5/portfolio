@@ -79,21 +79,24 @@ export function initCursorGlow() {
 export function initHeroAnimations() {
     const heroTitle = document.querySelector('.hero h1');
     const heroSubtitle = document.querySelector('.hero-subtitle');
-    const heroBtn = document.querySelector('.hero .btn');
-    
+    const heroActions = document.querySelectorAll('.hero-actions a');
+
     setTimeout(() => {
         heroTitle.style.animation = 'fadeInUp 1s ease forwards';
     }, 300);
-    
+
     setTimeout(() => {
-        heroSubtitle.style.animation = 'fadeInUp 1s ease forwards 0.3s';
+        heroSubtitle.style.animation = 'fadeInUp 1s ease forwards';
         heroSubtitle.style.opacity = '0';
         heroSubtitle.style.animationFillMode = 'forwards';
     }, 600);
-    
+
     setTimeout(() => {
-        heroBtn.style.animation = 'fadeInUp 1s ease forwards 0.6s';
-        heroBtn.style.opacity = '0';
-        heroBtn.style.animationFillMode = 'forwards';
+        heroActions.forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.animation = 'fadeInUp 1s ease forwards';
+            el.style.animationDelay = `${0.9 + i * 0.15}s`;
+            el.style.animationFillMode = 'forwards';
+        });
     }, 900);
 }
