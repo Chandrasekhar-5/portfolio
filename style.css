@@ -508,11 +508,11 @@ body {
     margin-top:1.5rem;
     padding: 1rem 2.5rem;
     border-radius: 30px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: white;
+    background: transparent;
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
-    border: none;
+    border: 2px solid var(--border);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -520,9 +520,25 @@ body {
     z-index: 1;
 }
 
+.outline-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+.outline-btn:hover::before {
+    width: 100%;
+}
+
 .outline-btn:hover {
-  background: var(--accent);
   color: var(--bg);
+  transform: translateY(-5px);
 }
 
 
@@ -1077,7 +1093,7 @@ body.modal-open {
     padding: 3rem;
     max-width: 1500px;
     width: 100%;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-y: auto;
     border: 1px solid rgba(255,255,255,0.15);
     box-shadow: 
