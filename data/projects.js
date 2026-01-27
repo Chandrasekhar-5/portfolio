@@ -16,13 +16,21 @@ const projectsData = [
     {
         id: 2,
         title: "Finance Dashboard",
-        description: "Frontend‑only application with advanced animations and interactive elements.",
-        detailedDescription: "A comprehensive financial dashboard displaying real-time metrics, charts, and transaction history. Features include interactive data visualization using GSAP animations, dark/light mode, and mock API integration for financial data simulation.",
-        technologies: ["JavaScript", "GSAP", "CSS"],
+        description: "A modern, responsive online banking dashboard.",
+        detailedDescription: "A comprehensive financial dashboard displaying balance, accounts, and transaction history. Features include interactive data visualization , dark/light mode, and mock data for financial data simulation.",
+        technologies: ["JavaScript(ES6+)", "CSS", "HTML"],
         liveUrl: "https://finance-dashboard-simulator.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/finance-dashboard-ui",
-        badge: null,
-        features: ["GSAP Animations", "Dark/Light Mode", "Interactive Charts", "Mock API Data"],
+        badge: "Open Source",
+        features: [
+                "User Registration , Login & Secure logout ",
+                "LocalStorage-based session persistence",
+                "Real-time balance updates after transactions",
+                "Internal transfers (checking ↔ savings)",
+                "External transfer simulation",
+                "Bill payments (electricity, internet, credit card, etc.)",
+                "Dark/Light Mode"
+        ],
         images: {
             light: "assets/project-img/finance-light.png",
             dark: "assets/project-img/finance-dark.png"
@@ -31,13 +39,21 @@ const projectsData = [
     {
         id: 3,
         title: "Job Dashboard",
-        description: "Open‑source reusable template for portfolio websites with modern design.",
-        detailedDescription: "A job board dashboard for tracking applications, managing interviews, and organizing job search activities. Features include application status tracking, company profiles, and interview scheduling with a clean, modern interface.",
-        technologies: ["HTML", "CSS", "JavaScript"],
+        description: "A fully responsive, modern Job Board web application.",
+        detailedDescription: "A fully responsive, modern Job Board web application built using HTML, CSS, and Vanilla JavaScript.It allows users to browse jobs, apply filters, sort listings, save jobs, and switch between light & dark themes — all without any backend.",
+        technologies: ["JavaScript(ES6+)", "CSS", "HTML"],
         liveUrl: "https://job-board-cb4.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/job-board",
         badge: "Open Source",
-        features: ["Application Tracker", "Company Profiles", "Interview Scheduler", "Responsive Layout"],
+        features: [
+                "Search jobs by title, company, description, or skills", 
+                "Filter by: Location , Job Type (Full Time, Part Time, Internship, Contract)", 
+                "Sorting Options", 
+                "Save Jobs (LocalStorage)",
+                "Apply job action",
+                "Grid View & List View toggle",
+                "Fully responsive (mobile, tablet & desktop)"
+            ],
         images: {
             light: "assets/project-img/job-light.png",
             dark: "assets/project-img/job-dark.png"
