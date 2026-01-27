@@ -494,6 +494,38 @@ body {
     margin-right: auto;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.outline-btn {
+  display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top:1.5rem;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.outline-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+
 .hero-scroll-indicator {
     position: absolute;
     bottom: 3rem;
