@@ -167,14 +167,14 @@ body {
 }
 
 .logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Anta", sans-serif;
     color: var(--primary);
     font-size: 1.9rem;
     font-weight: 700;
     letter-spacing: -0.08px;
     position: relative;
     cursor: pointer;
-    transsition: 
+    transition: 
         transform 0.4s ease, 
         opacity 0.4s ease,
         text-shadow 0.4s ease;
@@ -288,7 +288,6 @@ body {
     opacity: 0.95;
 }
 
-/* Navigation links adjustments */
 .header-scrolled .nav-links a {
     font-size: 0.95rem;
     padding: 0.4rem 0;
@@ -299,14 +298,12 @@ body {
     height: 40px;
 }
 
-/* Theme button adjustments */
 .header-scrolled .theme-btn {
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
 }
 
-/* Theme Toggle */
 .theme-btn {
     background: var(--card);
     border: none;
@@ -477,6 +474,7 @@ body {
 }
 
 .hero h1 {
+    font-family: "Anta", sans-serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -489,6 +487,7 @@ body {
 }
 
 .hero-subtitle {
+    font-family: "Anta", sans-serif;
     font-size: 1.4rem;
     color: var(--muted);
     margin-bottom: 2rem;
@@ -496,6 +495,54 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.hero-actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.outline-btn {
+  display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top:1.5rem;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.outline-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+.outline-btn:hover::before {
+    width: 100%;
+}
+
+.outline-btn:hover {
+  color: var(--bg);
+  transform: translateY(-5px);
+}
+
 
 .hero-scroll-indicator {
     position: absolute;
@@ -742,7 +789,6 @@ body {
     line-height: 1.6;
 }
 
-/* PROJECT CARD - FIXED VERSION */
 .project-card {
     background: var(--card);
     border-radius: 20px;
@@ -835,7 +881,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* FIXED: Better technology tags visibility */
 .project-tech {
     display: flex;
     flex-wrap: wrap;
@@ -1008,7 +1053,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85); 
+    background: rgba(0, 0, 0, 0.8); 
     z-index: 2000;
     display: flex;
     align-items: flex-start;
@@ -1039,7 +1084,7 @@ body {
 
 body.modal-open {
     overflow: hidden !important;
-    position: fixed !important;
+    position: relative !important;
     width: 100%;
     height: 100%;
 }
@@ -1048,12 +1093,14 @@ body.modal-open {
     background: var(--bg-light); 
     border-radius: 25px;
     padding: 3rem;
-    max-width: 1400px;
+    max-width: 1500px;
     width: 100%;
     max-height: 85vh;
     overflow-y: auto;
-    border: 1px solid var(--border);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.45)
+                0 0 0 1px rgba(255,255,255,0.05); 
     animation: slideUp 0.4s ease;
     position: relative;
 }
@@ -1134,7 +1181,7 @@ body.modal-open {
 .modal-projects .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent);
+    border-color: var(--primary);
 }
 
 /* ===============================
@@ -1145,10 +1192,60 @@ body.modal-open {
     backdrop-filter: blur(10px);
     padding: 2rem;
     animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2001;
+}
+
+.project-detail-overlay::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-detail-overlay::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.project-detail-overlay::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 4px;
+}
+
+.project-detail-overlay::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent), var(--primary));
+}
+
+.project-detail-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-detail-content::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.project-detail-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 4px;
+    border: 2px solid var(--card);
+}
+
+.project-detail-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent), var(--primary));
 }
 
 .project-detail-modal {
     max-width: 900px;
+    max-height: 90vh;
     padding: 0;
     overflow: hidden;
     border-radius: 24px;
@@ -1156,16 +1253,21 @@ body.modal-open {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: var(--card);
     animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-detail-image {
     height: 300px;
+    min-height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     border-radius: 24px 24px 0 0;
+    flex-shrink: 0;
 }
 
 .project-detail-image::after {
@@ -1181,6 +1283,9 @@ body.modal-open {
 .project-detail-content {
     padding: 2.5rem;
     position: relative;
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(90vh - 300px);
 }
 
 .project-detail-content h2 {
@@ -1194,7 +1299,7 @@ body.modal-open {
     background-clip: text;
 }
 
-.project-detail-content > p {
+.project-detail-content > p.project-card-description {
     color: var(--muted);
     line-height: 1.7;
     margin-bottom: 2rem;
@@ -1203,12 +1308,11 @@ body.modal-open {
     border-bottom: 1px solid var(--border);
 }
 
-/* Improved technologies section */
 .project-detail-content .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     padding: 1.5rem;
     background: rgba(99, 102, 241, 0.05);
     border-radius: 16px;
@@ -1232,12 +1336,13 @@ body.modal-open {
     box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
 }
 
-/* Improved action buttons */
 .project-detail-actions {
     display: flex;
     gap: 1.2rem;
     margin-top: 2.5rem;
     flex-wrap: wrap;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
 }
 
 .project-detail-actions .btn {
@@ -1252,6 +1357,9 @@ body.modal-open {
     position: relative;
     overflow: hidden;
     border: none;
+    flex: 1;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .project-detail-actions .btn i {
@@ -1293,7 +1401,6 @@ body.modal-open {
     width: 100%;
 }
 
-/* Improved close button */
 .project-detail-modal .modal-close {
     position: absolute;
     top: 1.5rem;
@@ -1382,10 +1489,16 @@ body.modal-open {
     border-left: 4px solid var(--primary);
 }
 
+.project-tech-details {
+    margin: 2rem 0;
+}
+
 .project-detailed-description h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     color: var(--text);
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
 .project-detailed-description p {
@@ -1424,6 +1537,36 @@ body.modal-open {
     border-bottom: 1px solid var(--border);
 }
 
+/* HOME - ABOUT STACK BASE */
+.stack-wrapper {
+  position: relative;
+  height: 200vh;
+}
+
+.stack-home,
+.stack-about {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* About starts below viewport */
+.stack-about {
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+.stack-home {
+  z-index: 1;
+}
+
+.stack-home.section,
+.stack-about.section {
+  opacity: 1;
+  transform: none;
+}
+
+
 /* Responsive improvements */
 @media (max-width: 768px) {
     .project-detail-overlay {
@@ -1431,16 +1574,18 @@ body.modal-open {
     }
     
     .project-detail-modal {
-        max-height: 90vh;
+        max-height: 95vh;
         overflow-y: auto;
     }
     
     .project-detail-image {
         height: 200px;
+        min-height: 200px;
     }
     
     .project-detail-content {
         padding: 1.5rem;
+        max-height: calc(95vh - 200px);
     }
     
     .project-detail-content h2 {
@@ -1455,6 +1600,12 @@ body.modal-open {
     .project-detail-actions .btn {
         width: 100%;
         justify-content: center;
+        min-width: auto;
+    }
+
+    .project-detailed-description,
+    .project-detail-content .project-tech {
+        padding: 1rem;
     }
 }
 
@@ -1465,6 +1616,29 @@ body.modal-open {
     
     .project-detail-image {
         height: 180px;
+        min-height: 180px;
+    }
+
+    .project-detail-content {
+        max-height: calc(95vh - 180px);
+    }
+
+    .project-detail-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .project-detail-content::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    .project-detail-content::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, var(--primary), var(--accent));
+        border-radius: 3px;
+    }
+
+    .project-detail-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent), var(--primary));
     }
     
     .project-detail-content .project-tech {
@@ -1570,7 +1744,7 @@ body.modal-open {
 }
 
 .footer-logo {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Anta", sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: #6366f1;
@@ -1578,6 +1752,7 @@ body.modal-open {
 }
 
 .footer-tagline {
+    font-family: "Anta", sans-serif;
     color: #94a3b8;
     margin-bottom: 2rem;
     font-size: 1.1rem;

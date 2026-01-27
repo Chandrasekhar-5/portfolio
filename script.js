@@ -48,32 +48,69 @@ function smoothScrollLoop() {
 
     scrollVelocity = targetScroll - currentScroll;
 
-    runScrollEffects(currentScroll, scrollVelocity);
+    runScrollEffects();
 
     requestAnimationFrame(smoothScrollLoop);
 }
 smoothScrollLoop();
 
-function runScrollEffects(scrollY, velocity) {
-    homeAboutStacking(scrollY, velocity);
+function runScrollEffects() {
+    homeAboutStacking(window.scrollY);
 }
+
+
+function homeAboutStacking(scrollY) {
+    const wrapper = document.querySelector('.stack-wrapper');
+    const home = document.querySelector('.stack-home');
+    const about = document.querySelector('.stack-about');
+
+    if (!wrapper || !home || !about) return;
+
+    const start = wrapper.offsetTop;
+    const end = start + window.innerHeight;
+
+    if (scrollY <= start) {
+        home.style.opacity = '1';
+        home.style.transform = 'scale(1)';
+        home.style.filter = 'blur(0px)';
+        about.style.transform = 'translateY(100%)';
+        return;
+    }
+
+    if (scrollY >= end) {
+        home.style.opacity = '0';
+        home.style.transform = 'scale(0.88)';
+        home.style.filter = 'blur(6px)';
+        about.style.transform = 'translateY(0)';
+        return;
+    }
+
+    const linear = (scrollY - start) / window.innerHeight;
+
+    const t = linear < 0.5
+        ? 16 * Math.pow(linear, 5)
+        : 1 - Math.pow(-2 * linear + 2, 5) / 2;
+
+    home.style.opacity = `${1 - t}`;
+    home.style.transform = `scale(${1 - t * 0.12})`;
+    home.style.filter = `blur(${t * 6}px)`;
+    about.style.transform = `translateY(${(1 - t) * 100}%)`;
+}
+
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');
-    if (!header) return;
-
-    let lastScroll = 0;
+    const about  = document.querySelector('#about');
+    if (!header || !about) return;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
+        const trigger = about.offsetTop - 80;
         
-        if (currentScroll > 40) {
+        if (window.scrollY >= trigger) {
             header.classList.add('header-scrolled');
         } else {
             header.classList.remove('header-scrolled');
         }
-
-        lastScroll = currentScroll;
     });
 }
 
