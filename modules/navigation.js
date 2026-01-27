@@ -35,8 +35,10 @@ export function initNavigation() {
                 const headerHeight = document.querySelector('.header').offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight;
                 window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+                    top: targetId === '#home'
+                        ? 0
+                        : targetSection.offsetTop - document.querySelector('.header').offsetHeight,
+                        behavior: 'smooth'
                 });
             }
         });
