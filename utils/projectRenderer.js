@@ -140,7 +140,9 @@ class ProjectRenderer {
         <div class="project-features">
             <h3>Key Features</h3>
             <div class="features-list">
-                ${project.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+                <ul class="feature-list">
+                    ${project.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
             </div>
         </div>
     ` : '';
