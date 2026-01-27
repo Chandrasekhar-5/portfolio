@@ -50,20 +50,24 @@ class ProjectRenderer {
 
         const bgImage = this.getProjectBg(project);
         const bgStyle = bgImage ? `background-image: url('${bgImage}')` : '';
+        const isDisabled = project.comingSoon;
+        const overlayHTML = isDisabled ? `
+            <div class="project-overlay coming-soon">
+                <span>Coming Soon</span>
+            </div>
+            ` : `
+            <div class="project-overlay">
+                <div class="project-links">
+                    ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" class="project-link">Live Preview</a>` : ''}
+                    ${project.codeUrl ? `<a href="${project.codeUrl}" target="_blank" class="project-link">Code</a>` : ''}
+                </div>
+            </div>
+            `;
         
         return `
             <div class="project-card project-hover" data-id="${project.id}">
                 <div class="project-img" style="${bgStyle}">
-                    <div class="project-overlay">
-                        <div class="project-links">
-                            <a href="${project.liveUrl}" target = "_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Preview
-                            </a>
-                            <a href="${project.codeUrl}" target = "_blank" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
+                    ${overlayHTML}
                     ${badgeHTML}
                 </div>
                 <div class="project-content">
@@ -136,7 +140,9 @@ class ProjectRenderer {
         <div class="project-features">
             <h3>Key Features</h3>
             <div class="features-list">
-                ${project.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+                <ul class="feature-list">
+                    ${project.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
             </div>
         </div>
     ` : '';
