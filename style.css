@@ -1485,7 +1485,7 @@ body.modal-open {
     border-bottom: 1px solid var(--border);
 }
 
-/* HOME → ABOUT STACK BASE */
+/* HOME - ABOUT STACK BASE */
 .stack-wrapper {
   position: relative;
   height: 200vh;
@@ -1506,6 +1506,12 @@ body.modal-open {
 
 .stack-home {
   z-index: 1;
+}
+
+.stack-home.section,
+.stack-about.section {
+  opacity: 1;
+  transform: none;
 }
 
 
