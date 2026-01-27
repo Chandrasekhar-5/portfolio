@@ -104,8 +104,12 @@ function initHeaderScroll() {
     if (!header || !about) return;
 
     window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 768) {
+            header.classList.remove('header-scrolled');
+            return;
+        }
+
         const trigger = about.offsetTop - 80;
-        
         if (window.scrollY >= trigger) {
             header.classList.add('header-scrolled');
         } else {
