@@ -2907,3 +2907,22 @@ body.modal-open {
         display: none !important;
     }
 }
+
+
+@media (max-width: 768px) {
+  .stack-wrapper {
+    height: auto;
+  }
+
+  .stack-home,
+  .stack-about {
+    position: static;
+    height: auto;
+    transform: none;
+    z-index: auto;
+  }
+
+  .stack-about {
+    margin-top: 3rem;
+  }
+}
