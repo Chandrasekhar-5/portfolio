@@ -100,20 +100,17 @@ function homeAboutStacking(scrollY) {
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');
-    if (!header) return;
-
-    let lastScroll = 0;
+    const about  = document.querySelector('#about');
+    if (!header || !about) return;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
+        const trigger = about.offsetTop - 80;
         
-        if (currentScroll > 40) {
+        if (window.scrollY >= trigger) {
             header.classList.add('header-scrolled');
         } else {
             header.classList.remove('header-scrolled');
         }
-
-        lastScroll = currentScroll;
     });
 }
 
