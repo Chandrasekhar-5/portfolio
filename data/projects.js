@@ -62,21 +62,27 @@ const projectsData = [
     {
         id: 4,
         title: "Movie Database",
-        description: "A modern, responsive portfolio template to showcase your projects and skills.",
+        description: "A beautiful, responsive movie database web application built using OMDB API.",
         detailedDescription: "A movie discovery application with search functionality, genre filtering, and detailed movie information. Features include trending movies, watchlist functionality, and responsive design for all devices.",
-        technologies: ["HTML", "CSS", "JavaScript"],
+        technologies: ["HTML", "CSS", "JavaScript", "API"],
         liveUrl: "https://movie-database-d3t.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/movie-database",
-        badge: null,
-        features: ["Movie Search", "Genre Filtering", "Watchlist", "Responsive Design"],
+        badge: "API Integration",
+        features: [
+                "Smart Search: Search for movies, TV series, and episodes", 
+                "Filters: Filter by year and type (movie/series/episode)", 
+                "Random Discovery: Discover random movies with one click", 
+                "Responsive Design: Works perfectly on desktop, tablet, and mobile",
+                "Infinite Scroll: Load more movies as you scroll"
+            ],
         image: "assets/project-img/movie-database.png"
     },
     {
         id: 5,
         title: "Weather App",
-        description: "Real-time weather application with location detection and 5-day forecast.",
-        detailedDescription: "A weather application that provides current conditions, 5-day forecasts, and location-based weather data. Features include geolocation detection, temperature unit conversion, and detailed weather metrics with animated weather icons.",
-        technologies: ["API", "JavaScript", "CSS"],
+        description: "Real-time weather application with 7-day forecast.",
+        detailedDescription: "A weather application that provides current conditions, 7-day forecasts, and location-based weather data. Features include geolocation detection, temperature unit conversion, and detailed weather metrics with animated weather icons.",
+        technologies: ["API", "JavaScript", "CSS", "HTML"],
         liveUrl: "https://arcweather.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/ArcWeather",
         badge: "API Integration",
@@ -86,25 +92,37 @@ const projectsData = [
     {
         id: 6,
         title: "Expense Splitter",
-        description: "Drag and drop task management application with local storage.",
+        description: "A clean and interactive frontend-only Expense Splitter.",
         detailedDescription: "An expense splitting tool for groups to track shared expenses, calculate balances, and settle up. Features include adding participants, expense categorization, balance calculations, and local storage for data persistence.",
         technologies: ["Local Storage", "JavaScript", "UI/UX"],
         liveUrl: "https://expense-splitter-8mh.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/expense-splitter",
-        badge: "Interactive",
-        features: ["Expense Tracking", "Balance Calculation", "Local Storage", "Group Management"],
+        badge: "Real-World Utility",
+        features: [
+                "Expense Tracking",
+                "Optimized settlement suggestions (minimum transactions)", 
+                "Balance Calculation", 
+                "Local Storage",
+                "Export & Import data (JSON)", 
+                "Group Management"
+            ],
         image: "assets/project-img/expense.png"
     },
     {
         id: 7,
         title: "Tip Calculator",
-        description: "Drag and drop task management application with local storage.",
+        description: "A clean, responsive Tip Calculator web application.",
         detailedDescription: "A tip calculator that calculates tip amounts, splits bills, and provides different tip percentages. Features include bill splitting, custom tip percentages, and round-up functionality.",
-        technologies: ["Local Storage", "JavaScript", "UI/UX"],
+        technologies: ["JavaScript(ES6+)", "CSS", "HTML"],
         liveUrl: "https://tip-calculator-dwi.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/tip-calculator",
-        badge: "Interactive",
-        features: ["Tip Calculation", "Bill Splitting", "Custom Percentages", "Round-up Option"],
+        badge: "Logic-Building Project",
+        features: [
+                "Enter bill amount with validation", 
+                "Split bill among multiple people", 
+                "Select tip percentage or enter custom tip", 
+                "Real-time calculation (no calculate button)"
+            ],
         images: {
             light: "assets/project-img/tip-light.png",
             dark: "assets/project-img/tip-dark.png"
@@ -114,12 +132,16 @@ const projectsData = [
         id: 8,
         title: "Countdown Timer",
         description: "Drag and drop task management application with local storage.",
-        detailedDescription: "A countdown timer application for tracking important events and deadlines. Features include multiple timer presets, custom time setting, pause/resume functionality, and visual progress indicators.",
-        technologies: ["Local Storage", "JavaScript", "UI/UX"],
+        detailedDescription: "A countdown timer application focusing on clean UI, accurate timing logic, and mobile-first responsiveness.Features include custom time setting, pause/resume functionality.",
+        technologies: ["JavaScript", "CSS", "HTML"],
         liveUrl: "https://countdown-timer-347.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/countdown-timer",
-        badge: "Interactive",
-        features: ["Custom Timers", "Progress Indicators", "Pause/Resume", "Multiple Presets"],
+        badge: "Time-Based Utility",
+        features: [
+                "Set countdown using hours, minutes, and seconds", 
+                "Start, pause, resume, and reset controls", 
+                "Live countdown display", 
+                "Visual indication when timer completes"],
         images: {
             light: "assets/project-img/timer-light.png",
             dark: "assets/project-img/timer-dark.png"
@@ -128,25 +150,40 @@ const projectsData = [
     {
         id: 9,
         title: "Calculator",
-        description: "Drag and drop task management application with local storage.",
-        detailedDescription: "A fully functional calculator with basic arithmetic operations, memory functions, and a clean interface. Features include keyboard support, calculation history, and responsive design.",
-        technologies: ["Local Storage", "JavaScript", "UI/UX"],
+        description: "A modern, mobile-inspired scientific calculator.",
+        detailedDescription: "The Realme Style Calculator is a feature-rich web application designed to replicate the feel of a modern smartphone calculator while extending its capabilities beyond basic arithmetic.In addition, it includes a slide-in unit converter drawer that allows users to convert values across multiple domains such as length, weight, area, volume, temperature, speed, pressure, power, number systems, and currency.",
+        technologies: ["JavaScript", "CSS", "HTML", "API"],
         liveUrl: "https://calculator-eie.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/Calculator",
-        badge: "Interactive",
-        features: ["Basic Operations", "Memory Functions", "Keyboard Support", "Calculation History"],
+        badge: "Logic-Building Project",
+        features: [
+                "Basic operations: + − × ÷ %", 
+                "Scientific functions:sin, cos, tan, log, ln, √, factorial !, inverse", 
+                "Power operator ^", 
+                "Constants: π, e, Bracket support ( )",
+                "Radians / Degrees toggle",
+                "Animated function preview before calculation",
+                "Smart input handling & error prevention"
+            ],
         image: "assets/project-img/calculator.png"
     },
     {
         id: 10,
         title: "Periodic Table",
-        description: "Drag and drop task management application with local storage.",
-        detailedDescription: "An interactive periodic table with detailed element information, filtering options, and search functionality. Features include element details on hover, category filtering, and responsive grid layout.",
-        technologies: ["Local Storage", "JavaScript", "UI/UX"],
+        description: "An interactive, visually rich periodic table web application.",
+        detailedDescription: "The Interactive Periodic Table is a dynamic web-based visualization of the periodic table designed to make learning chemistry intuitive and engaging. Instead of static tables, each element is represented as an interactive card placed accurately according to its period and group. Elements respond to user interactions such as hovering, searching, and clicking, providing instant visual feedback.",
+        technologies: ["JavaScript", "CSS", "HTML"],
         liveUrl: "https://periodic-table-cii.pages.dev/",
         codeUrl: "https://github.com/Chandrasekhar-5/periodic-table",
         badge: "Interactive",
-        features: ["Element Details", "Category Filtering", "Search Functionality", "Interactive Grid"],
+        features: [
+                "Complete periodic table (118 elements)", 
+                "Hover animations with smooth scaling", 
+                "Click-based element detail modal", 
+                "Smart search & highlight system",
+                "Color-coded element categories",
+                "Separate Lanthanide & Actinide series"
+            ],
         image: "assets/project-img/periodic.png"
     }
 ];
