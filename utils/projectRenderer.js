@@ -44,7 +44,7 @@ class ProjectRenderer {
         const badgeHTML = project.badge ? 
             `<div class="project-badge">${project.badge}</div>` : '';
         
-        const technologiesHTML = project.technologies.map(tech => 
+        const technologiesHTML = project.technologies.slice(0, 3).map(tech => 
             `<span>${tech}</span>`
         ).join('');
 

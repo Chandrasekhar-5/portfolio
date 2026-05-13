@@ -1,6 +1,21 @@
 const projectsData = [
     {
         id: 1,
+        title: "QuickPick",
+        description: "A multi-tenant food ordering and analytics platform designed for college campuses.",
+        detailedDescription: "QuickPick Campus is a multi-tenant food ordering and analytics platform designed for college campuses. The system allows students to order food from campus vendors while enabling vendors and administrators to manage operations and view analytics.",
+        technologies: ["React.js", "TailwindCSS","Node.js", "Express.js", "MongoDB", "Typescript"],
+        liveUrl: "https://quick-pick-landing-page.vercel.app/",
+        codeUrl: "https://github.com/Chandrasekhar-5/quick-pick",
+        badge: "Real-World Application",
+        features: ["Multi-role campus food ordering platform for Students, Vendors, and Admins", "Real-time order management and vendor dashboard", "JWT-based authentication and role-based access control", "Multi-tenant architecture using collegeId isolation","Separate React frontends for scalability and security",
+                    "Analytics and order tracking system","Integrated REST APIs with React frontends and MongoDB backend"],
+        image: "assets/project-img/quick-pick.png"
+    },
+
+
+        /*
+        id: 1,
         title: "PrepPulse",
         description: "Coming soon. A next-gen exam preparation platform.",
         detailedDescription: "A comprehensive exam preparation platform featuring a modern dashboard, practice tests, and performance analytics. Built with pure HTML, CSS, and JavaScript, it includes interactive quiz modules, progress tracking, and a clean user interface optimized for study sessions.",
@@ -11,8 +26,10 @@ const projectsData = [
         comingSoon: true,
         features: ["Interactive Quizzes", "Progress Tracking", "Responsive Design", "Performance Analytics","Adaptive practice system for competitive exams",
     "Performance-based analytics dashboard",
-    "Modern distraction-free study UI"]
-    },
+    "Modern distraction-free study UI"] */
+
+
+
     {
         id: 2,
         title: "Finance Dashboard",
